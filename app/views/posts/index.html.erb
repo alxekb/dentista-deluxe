@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Блог Алексея Гурьева</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Тема поста</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= link_to 'показать', post %></td>
+        <td><%= link_to 'редактировать', edit_post_path(post) %></td>
+        <td><%= link_to 'удалить', post, method: :delete, data: { confirm: 'уверен??' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'добавить пост', new_post_path %>
